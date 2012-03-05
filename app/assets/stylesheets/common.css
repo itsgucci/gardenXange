@@ -7,4 +7,33 @@
   margin: 10px 0 0 0;
 }
 
+.ui-widget-content {
+  background: repeat-x scroll 50% top #EEEEEE;
+  border: 1px solid #DDDDDD;
+  color: #333333;
+}
 
+.ui-corner-all {
+      border-radius: 4px 4px 4px 4px;
+}
+
+.ui-menu {
+    display: block;
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 2px;
+}
+
+.ui-menu .ui-menu-item {
+    clear: left;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.ui-autocomplete {
+    cursor: default;
+    position: absolute;
+}

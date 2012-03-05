@@ -382,12 +382,13 @@ $.widget( "ui.autocomplete", {
 
 	_resizeMenu: function() {
 		var ul = this.menu.element;
-		ul.outerWidth( Math.max(
+    ul.outerWidth(this.element.outerWidth() + 1);
+		/*ul.outerWidth( Math.max(
 			// Firefox wraps long text (possibly a rounding bug)
 			// so we add 1px to avoid the wrapping (#7513)
 			ul.width( "" ).outerWidth() + 1,
 			this.element.outerWidth()
-		) );
+		) );*/
 	},
 
 	_renderMenu: function( ul, items ) {
