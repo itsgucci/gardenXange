@@ -1,0 +1,27 @@
+<h1>Listing user_profiles</h1>
+
+<table>
+  <tr>
+    <th>Address</th>
+    <th>State</th>
+    <th>City</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_profiles.each do |user_profile| %>
+  <tr>
+    <td><%= user_profile.address %></td>
+    <td><%= user_profile.state %></td>
+    <td><%= user_profile.city %></td>
+    <td><%= link_to 'Show', user_profile %></td>
+    <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+    <td><%= link_to 'Destroy', user_profile, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User profile', new_user_profile_path %>

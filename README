@@ -1,0 +1,26 @@
+* Summary *
+
+The gardenXchange is an open-source Rails web project devised from a common problem shared amoung gardeners everywhere:
+  What do you do with excess produce?
+  How can you minimize wasted food?
+
+Initially conceived after several trips to various Hawaiian islands, I promised myself I would create a prototype to share with the community.
+
+
+* Technology Stack *
+
+Rails 3.2.1
+Ruby ruby 1.9.3
+MySQL 5.1+
+
+
+* Hosting *
+
+TBD
+
+
+* Author *
+
+Lisa Sheridan
+owner@codevelvet.com
+www.codevelvet.com

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: fred
+  username: fred1
+  email: fred1@gmail.com
+
+two:
+  name: mary
+  username: mary1
+  email: mary1.gmail.com

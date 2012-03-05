@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address:</b>
+  <%= @user_profile.address %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @user_profile.state %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @user_profile.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>
