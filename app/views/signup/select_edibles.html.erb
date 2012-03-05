@@ -8,6 +8,11 @@
   </style>
   <script>
   $(function() {
+    function add_input( item ) {
+      $('<input />').attr({'type':'hidden', 'name':'food_items[]', 'value':item.id})
+                        .appendTo('#food-items');
+    }
+
     function log( message ) {
       $( "<div/>" ).text( message ).prependTo( "#log" );
       $( "#log" ).scrollTop( 0 );
@@ -25,7 +30,8 @@
           success: function( data ) {
             response( $.map( data, function( item ) {
               return {
-                label: item.name, 
+                label: item.name,
+                id: item.id,
                 value: item.name
               }
             }));
@@ -34,8 +40,9 @@
       },
       minLength: 1,
       select: function( event, ui ) {
+        add_input(ui.item);
         log( ui.item ?
-          "Selected: " + ui.item.label :
+          ui.item.label :
           "Nothing selected, input was " + this.value);
       },
       open: function() {
@@ -48,16 +55,10 @@
   });
   </script>
 
-
-
-
 <div class="signup-wizard">
   <h1>Select food items in your garden</h1>
 
   <div class="signup-wizard-content">
-
-
-
     <div class="ui-widget">
       <label for="food_item">Enter Food Item: </label>
       <input id="food_item"/>
@@ -65,12 +66,9 @@
 
     <div class="ui-widget" style="margin-top:2em; font-family:Arial">
       Selections:
-      <div id="log" style="height: 200px; width: 500px; overflow: auto;" class="ui-widget-content"></div>
+      <div id="log" style="height: 200px; width: 360px; overflow: auto; padding: 20px;" class="ui-widget-content"></div>
     </div>
-
-
-
-  <%= link_to 'Back', signup_path %>
   </div>
+  <div id="food-items"></div>
 
 </div>

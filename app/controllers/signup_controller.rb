@@ -44,8 +44,8 @@ class SignupController < ApplicationController
   end
 
   # Step 2: Select Vegetables/Fruits you are growing GET
-  #
-  #
+  # GET /signup/select_edibles
+  # GET /signup/select_edibles.json
   def select_edibles
     @food_items = FoodItem.all                                 
     @user = User.find_by_id(params[:id]) #also handle could be nil
