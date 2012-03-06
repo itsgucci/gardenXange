@@ -1,4 +1,4 @@
 class Garden < ActiveRecord::Base
-  has_one :user
-  has_and_belongs_to_many :food_itmes
+  belongs_to :user
+  has_and_belongs_to_many :food_items, :join_table => :gardens_food_items
 end

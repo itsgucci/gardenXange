@@ -25,4 +25,9 @@ describe User do
     u = User.create!(@valid_attributes)
     u.food_items.should be_nil
   end
+
+  it "creates a new garden after user created" do
+    u = User.create!(@valid_attributes)
+    u.gardens.should_not be_nil
+  end
 end

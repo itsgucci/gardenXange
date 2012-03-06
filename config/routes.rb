@@ -17,8 +17,9 @@ Mygarden::Application.routes.draw do
   match 'signup' => 'signup#signup_user'
   match 'signup/create_user' => 'signup#create_user', :via => :post
   match 'signup/select_edibles' => 'signup#select_edibles', :via => :get
+  match 'signup/save_edibles' => 'signup#save_edibles', :via => :post
   match 'signup/signup_user' => 'signup#signup_user', :via => :get
-  scope(:path_names => { :new => 'signup_user', :create => 'create_user', :index => 'signup_user' }) do
+  scope(:path_names => { :new => 'signup_user', :create => 'create_user', :index => 'signup_user', :update => 'save_edibles'  }) do
     resources :users, :path => "signup"
   end
 

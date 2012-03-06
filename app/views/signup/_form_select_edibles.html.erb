@@ -1,4 +1,4 @@
-<%= form_for(@user, :url => { :action => 'create_user', :controller => 'signup' }) do |f| %>
+<%= form_for(@user, :method => :post, :url => { :action => 'save_edibles', :controller => 'signup' }) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,27 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username, :class => 'signup-field' %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password, :class => 'signup-field' %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, :class => 'signup-field' %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, :class => 'signup-field' %>
-  </div>
-  <div class="field">
-    <%= f.label :email_confirmation %>
-    <%= f.email_field :email_confirmation, :class => 'signup-field' %>
-  </div>
+  <input type="hidden" name="user_id" value="<%= @user.id%>"/>
+  <div id="food-items"></div>
   <div class="actions">
-    <%= f.submit :class => 'submit-button' %>
+    <%= f.submit :class => 'submit-button', :value => 'Save Edibles' %>
   </div>
 <% end %>

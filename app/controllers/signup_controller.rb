@@ -33,7 +33,7 @@ class SignupController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to :action => 'select_edibles', notice: 'User was successfully created.' }
+        format.html { redirect_to :action => 'select_edibles', id: @user.id, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         logger.error("User creation failed!")
@@ -56,21 +56,28 @@ class SignupController < ApplicationController
     end
   end
 
-  # Step 2: Select Vegetables/Fruits you are growing POST
+  # Step 2: Save Vegetables/Fruits you are growing POST
   # This step saves this data only. Can return later.
-  #
+  # POST /save_edibles
+  # POST /save_edibles.json
+  def save_edibles
+    @user = User.find_by_id(params[:user_id]) #also handle could be nil
+
+    respond_to do |format|
+      if @user.set_food_items_by_id(params[:food_items])
+        format.html { redirect_to :action => 'select_edibles', id: @user.id, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        logger.error("User creation failed!")
+        format.html { render action: "signup_user" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # Step 3: Subscribe to Vegetables/Fruits from other gardens GET
   #
   #
-  def subscribe_edibles
-    @food_items = FoodItem.all
-
-    respond_to do |format|
-      format.html # select_edibles.html.erb
-      format.json { render json: @food_items }
-    end
-  end
 
   # Step 3: Subscribe to Vegetables/Fruits from other gardens POST
   # This is the final step and should save ALL data.

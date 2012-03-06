@@ -58,7 +58,8 @@
 <div class="signup-wizard">
   <h1>Select food items in your garden</h1>
 
-  <div class="signup-wizard-content">
+  <div class="signup-wizard-content">                                                 0
+    <%= render 'form_select_edibles' %>
     <div class="ui-widget">
       <label for="food_item">Enter Food Item: </label>
       <input id="food_item"/>
@@ -69,6 +70,4 @@
       <div id="log" style="height: 200px; width: 360px; overflow: auto; padding: 20px;" class="ui-widget-content"></div>
     </div>
   </div>
-  <div id="food-items"></div>
-
 </div>
