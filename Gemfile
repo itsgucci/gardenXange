@@ -7,6 +7,7 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'bcrypt-ruby'
 
 
 # Gems used only for assets and not required
@@ -38,6 +39,7 @@ gem 'jquery-rails'
 # To use debugger
  #gem 'ruby-debug19', :require => 'ruby-debug'
 gem "rspec-rails", :group => [:development, :test]
+gem 'factory_girl', :group => [:development, :test]
 #gem "diff-lcs-1.1.3"
 
 group :cucumber do

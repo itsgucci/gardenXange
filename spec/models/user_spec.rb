@@ -30,4 +30,28 @@ describe User do
     u = User.create!(@valid_attributes)
     u.gardens.should_not be_nil
   end
+
+  it "should authenticate with correct username, password" do
+    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
+    User.authenticate('frank', 'secret').should == user
+  end
+
+  it "should not authenticate with incorrect password" do
+    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
+    begin
+      User.authenticate('frank', 'wrong').should be_nil
+    rescue Exception => e
+      e.message.should_not be_nil
+    end
+  end
+
+  it "should not authenticate with incorrect username" do
+    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
+    begin
+      User.authenticate('wrong', 'secret').should be_nil
+    rescue Exception => e
+      e.message.should_not be_nil
+    end
+  end
+ 
 end
