@@ -10,7 +10,20 @@
 </head>
 <body>
   <%= render "shared/top_bar" %>
-  <%= yield %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <!-- The side menu -->
+      <div class="span2">
+      </div><!-- End side menu -->
 
+      <!-- The main span -->
+      <div class="span10">
+        <!-- The login modal -->
+        <%= render :partial => 'sessions/login' %>                                                                                                                                                
+        
+        <%= yield %>
+      </div><!-- End main span -->
+    </div>
+  </div>
 </body>
 </html>
