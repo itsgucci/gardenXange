@@ -8,7 +8,7 @@ class HomeController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to :action => :welcome }
+        format.html { render :action => :welcome }
       end
     end
   end
