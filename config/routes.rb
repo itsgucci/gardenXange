@@ -1,22 +1,9 @@
 Mygarden::Application.routes.draw do
-  devise_for :users
-
   resource :session
-
-  # Admin only can access these resources
-  authenticate(:admin) do
-    resources :gardens
-    resources :user_subscriptions
-    resources :user_profiles
-    resources :food_items
-  end
-
-  # Specify initial page based on whether user is authenticated
-  authenticated do
-    root :to => 'home#show'
-  end
-  root :to => 'home#welcome'
-
+  resources :gardens
+  resources :user_subscriptions
+  resources :user_profiles
+  resources :food_items
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

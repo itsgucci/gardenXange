@@ -8,7 +8,6 @@ gem 'rails', '3.2.1'
 
 gem 'mysql2'
 gem 'bcrypt-ruby'
-gem 'devise'
 
 
 # Gems used only for assets and not required
