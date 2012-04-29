@@ -26,5 +26,13 @@ describe SessionsController, "session management" do
     response.should_not redirect_to(:action => session[:intended_action],
                                     :controller => session[:intended_controller])
   end
-    
+
+  it "should render to home#show if authenticated" do
+    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
+    session[:intended_action] = 'show'
+    session[:intended_controller] = 'home'
+    post 'create', :username => 'frank', :password => 'secret'
+    response.should redirect_to(:action => 'show',
+                                :controller => 'home')
+  end
 end

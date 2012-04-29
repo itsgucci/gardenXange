@@ -1,4 +1,7 @@
 Mygarden::Application.routes.draw do
+  # Set the '/' page
+  root :to => 'home#show'
+
   resource :session
   resources :gardens
   resources :user_subscriptions
