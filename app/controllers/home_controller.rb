@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   # GET /show
   def show
+    @user_count = User.count
     if user_authenticated?
       @user = User.find_by_id(session[:user_id])
       respond_to do |format|
@@ -12,5 +13,4 @@ class HomeController < ApplicationController
       end
     end
   end
-
 end

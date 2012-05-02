@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>gardenXange</title>
-  <%= stylesheet_link_tag    "bootstrap.min" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap.custom" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery.tools.min" %>
   <%= csrf_meta_tags %>
@@ -14,14 +14,21 @@
     <div class="row-fluid">
       <!-- The side menu -->
       <div class="span2">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">Food Items</li>
+          </ul>
+        </div><!-- End sidebar-nav-->
       </div><!-- End side menu -->
 
       <!-- The main span -->
-      <div class="span10">
+      <div class="span7">
         <!-- The login modal -->
         <%= render :partial => 'sessions/login' %>                                                                                                                                                
         
-        <%= yield %>
+        <div class="hero-unit">
+          <%= yield %>
+        </div><!-- End hero unit -->
       </div><!-- End main span -->
     </div>
   </div>
