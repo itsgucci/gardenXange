@@ -27,6 +27,26 @@ describe SessionsController, "session management" do
                                     :controller => session[:intended_controller])
   end
 
+  it "should redirect to show when no intended action set" do
+    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
+    session[:intended_action] = nil
+    session[:intended_controller] = nil
+    post 'create', :username => 'frank', :password => 'secret'
+    flash[:notice].should_not be_nil
+    response.should redirect_to(:action => 'show',
+                                :controller => 'home')
+  end
+
+  it "should redirect to show when intended actions is welcome" do
+    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
+    session[:intended_action] = 'welcome'
+    session[:intended_controller] = nil
+    post 'create', :username => 'frank', :password => 'secret'
+    flash[:notice].should_not be_nil
+    response.should redirect_to(:action => 'show',
+                                :controller => 'home')
+  end
+
   it "should render to home#show if authenticated" do
     user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
     session[:intended_action] = 'show'
