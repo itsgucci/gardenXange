@@ -54,4 +54,8 @@ $(document).ready(function() {
     // do something with the answer
     triggers.eq(1).html(input);                                                                                                                                                                           
   });
+
+  // Change CSS of signup  modal that should be open
+  if ( $('input#modal_open').length )
+    $('div#signup').css('display', 'inline');
 });

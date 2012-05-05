@@ -37,7 +37,8 @@ class SignupController < ApplicationController
         format.json { render json: @user, status: :created, location: @user }
       else
         logger.error("User creation failed!")
-        format.html { render action: "signup_user" }
+        @modal_open = true
+        format.html { render "signup_user" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
