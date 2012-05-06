@@ -5,13 +5,22 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "bootstrap.custom" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery.tools.min" %>
-  <%= javascript_include_tag 'select_edibles.js' %>
-  <%= javascript_include_tag 'jquery-ui/development-bundle/ui/jquery.ui.autocomplete.js' %>
+  <script>
+      $(document).ready(function() {
+        if ( $('input#modal_open').length )
+          $('div#signup').css('display', 'inline');
+       });   
+    console.log("DONE");
+  </script>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- javascript_include_tag 'select_edibles.js' %>-->
+  <!-- javascript_include_tag 'jquery-ui/development-bundle/ui/jquery.ui.autocomplete.js' %>-->
   <%= render "shared/top_bar" %>
   <div class="container-fluid">
     <div class="row-fluid">

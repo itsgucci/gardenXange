@@ -15,6 +15,7 @@
 //= require_tree .
 
 $(document).ready(function() {
+  console.log('FOO');
   // Trigger for modal 
   var triggers = $(".modalInput").overlay({
 
@@ -56,6 +57,8 @@ $(document).ready(function() {
   });
 
   // Change CSS of signup  modal that should be open
+  console.log('CHECKING...');
   if ( $('input#modal_open').length )
+    console.log('CHANGING CSS');
     $('div#signup').css('display', 'inline');
 });
