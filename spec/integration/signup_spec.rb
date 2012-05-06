@@ -99,6 +99,23 @@ describe 'signup flow', :js => true do
     page.should have_content('Step 2')
   end
 
+  it "should be authenticated after creating an account via signup modal" do
+    visit root_path
+    click_link 'Signup'
+    page.find('div#signup').should be_visible
+    page.should have_content('Step 1')
+
+    fill_in("Username", :with => @valid_attributes[:username])
+    fill_in("Password", :with => @valid_attributes[:password])
+    fill_in("Password confirmation", :with => @valid_attributes[:password])
+    fill_in("Email", :with => @valid_attributes[:email])
+    fill_in("Email confirmation", :with => @valid_attributes[:email])
+    click_button 'Next'
+    click_link 'Cancel'
+
+    page.should have_content('Show')
+  end
+
   it "should close select_edibles modal after clicking x link" do
   end
 
@@ -119,7 +136,7 @@ describe 'signup flow', :js => true do
     page.should have_content('Step 2')
     click_link 'Cancel'
     page.find('div#signup').should_not be_visible
-    page.should have_content('Welcome')
+    page.should have_content('Show')
   end
 
   # Consider moving this to a login integration test
@@ -135,8 +152,10 @@ describe 'signup flow', :js => true do
 
     page.find('div#login').should_not be_visible
     page.should have_content('Welcome back')
-    page.find("[href='#signup']").should_not be_visible
-    page.find("[href='#login']").should_not be_visible
+    page.should_not have_content('Signup')
+    page.find("[href='#{logout_path}']").should be_visible
+    page.should have_no_selector("[href='#login']")
+    page.should have_no_selector("[href='#signup']")
   end
 
 end

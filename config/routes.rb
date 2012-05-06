@@ -8,6 +8,12 @@ Mygarden::Application.routes.draw do
   resources :user_profiles
   resources :food_items
 
+  controller :sessions do
+    get "login" => "sessions#new"
+    post "login" => "sessions#create"
+    delete "logout" => "sessions#destroy"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

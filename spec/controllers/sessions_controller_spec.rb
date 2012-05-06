@@ -55,14 +55,4 @@ describe SessionsController, "session management" do
     response.should redirect_to(:action => 'show',
                                 :controller => 'home')
   end
-
-  it "should not display signup and login link if authenticated, and logout present" do
-    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
-    session[:intended_action] = 'show'
-    session[:intended_controller] = 'home'
-    post 'create', :username => 'frank', :password => 'secret'
-    assert_select "[href='#signup']", false
-    assert_select "[href='#login']", false
-    assert_select "[href='#logout']"
-  end
 end

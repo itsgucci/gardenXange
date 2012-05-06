@@ -5,11 +5,17 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li class="">
-            <a class="" data-toggle="modal" href="#login" >Login</a>
+            <% if session[:user_id] %>
+              <%= link_to 'Logout', logout_path, :method => :delete %>
+            <% else %>
+              <a class="" data-toggle="modal" href="#login" >Login</a>
+            <% end %>
           </li>
-          <li class="">
-            <a class="" data-toggle="modal" href="#signup" >Signup</a>
-          </li>
+          <% if !session[:user_id] %>
+            <li class="">
+              <a class="" data-toggle="modal" href="#signup" >Signup</a>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

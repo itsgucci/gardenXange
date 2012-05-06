@@ -33,6 +33,7 @@ class SignupController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = User.authenticate(@user.username, @user.password).id
         format.html { redirect_to :action => 'select_edibles', id: @user.id, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
