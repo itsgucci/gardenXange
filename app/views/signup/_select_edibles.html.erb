@@ -1,0 +1,48 @@
+<!-- The  Select Edibles modal -->
+<div class="modal" id="signup">                                                                                                                                                                    
+  <%= form_for(@user, :url => { :action => 'select_edibles', :controller => 'signup' }) do |f| %>                                                                                                              
+    <div class="modal-header">
+       <a href="<%= root_path %>" data-dismiss="modal" class="btn">x</a>
+      <h3>Step 2: What are you growing in your garden?</h3>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited food items from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="modal-body">
+      <% if @modal_open %>
+        <%= hidden_field_tag :modal_open %>
+      <% end %>
+      <p>
+      <input type="hidden" name="user_id" value="<%= @user.id%>"/>
+      <div class="signup-wizard-content">                                                 0
+        <!--= render 'form_select_edibles' %> -->
+        <div class="ui-widget">
+          <label for="food_item">Type Food Name: </label>
+          <input id="food_item"/>
+        </div>
+
+        <div class="ui-widget" style="margin-top:2em; font-family:Arial">
+          Selections:
+          <div id="log" style="height: 200px; width: 360px; overflow: auto; padding: 20px;" class="ui-widget-content"></div>
+        </div>
+      </div>
+
+      <div id="food-items"></div>
+      </p>
+      </div><!-- End modal-body -->
+
+      <div class="modal-footer">
+        <a href="<%= root_path %>" data-dismiss="modal" class="btn">Cancel</a>
+        <%= submit_tag "Next", :class => 'btn submit-button' %>
+      </div>
+  <% end %>
+</div><!-- End modal -->

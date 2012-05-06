@@ -2,8 +2,8 @@
 <div class="modal" id="signup">                                                                                                                                                                    
   <%= form_for(@user, :url => { :action => 'create_user', :controller => 'signup' }) do |f| %>                                                                                                              
     <div class="modal-header">
-      <button class="close" data-dismiss="modal">×</button>
-      <h3>Step 1: Choose a username, password and email</h3>
+      <a href="<%= root_path %>" data-dismiss="modal" class="btn">x</a>
+      <h3>Step 1: Create an account</h3>
       <% if @user.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -44,7 +44,7 @@
       </div><!-- End modal-body -->
 
       <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn">Cancel</a>
+        <a href="<%= root_path %>" data-dismiss="modal" class="btn">Cancel</a>
         <%= submit_tag "Next", :class => 'btn submit-button' %>
       </div>
   <% end %>

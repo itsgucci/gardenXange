@@ -53,7 +53,7 @@ class SignupController < ApplicationController
 
     respond_to do |format|
       @modal_open = true
-      format.html { render "select_edibles" }
+      format.html { render "_select_edibles" }
       format.json { render json: @food_items }
     end
   end

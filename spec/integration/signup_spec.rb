@@ -41,8 +41,9 @@ describe 'signup flow', :js => true do
     page.find('div#signup').should_not be_visible
     click_link 'Signup'
     page.find('div#signup').should be_visible
-    click_button 'x' # not firing click on button in selenium
+    click_link 'x' # not firing click on button in selenium
     page.find('div#signup').should_not be_visible
+    page.should have_content('Welcome')
   end
 
   it "should close signup modal after clicking Cancel link" do
@@ -56,6 +57,7 @@ describe 'signup flow', :js => true do
     page.find('div#signup').should be_visible
     click_link 'Cancel'
     page.find('div#signup').should_not be_visible
+    page.should have_content('Welcome')
   end
 
   it "should render signup modal with errors after submit for duplicate username" do
@@ -117,6 +119,7 @@ describe 'signup flow', :js => true do
     page.should have_content('Step 2')
     click_link 'Cancel'
     page.find('div#signup').should_not be_visible
+    page.should have_content('Welcome')
   end
 
   # Consider moving this to a login integration test
