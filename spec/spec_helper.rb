@@ -4,6 +4,12 @@ require File.expand_path("../../config/environment", __FILE__)
 require File.dirname(__FILE__) + "/factories"
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'selenium/client'
+require "selenium-webdriver"
+require 'cucumber/rails'
+require 'capybara'
+require "capybara/dsl"
+require 'capybara/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

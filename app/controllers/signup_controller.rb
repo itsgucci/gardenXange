@@ -52,7 +52,8 @@ class SignupController < ApplicationController
     @user = User.find_by_id(params[:id]) #also handle could be nil
 
     respond_to do |format|
-      format.html # select_edibles.html.erb
+      @modal_open = true
+      format.html { render "select_edibles" }
       format.json { render json: @food_items }
     end
   end

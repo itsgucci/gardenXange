@@ -38,16 +38,23 @@ gem 'jquery-rails'
 
 # To use debugger
  #gem 'ruby-debug19', :require => 'ruby-debug'
-gem "rspec-rails", :group => [:development, :test]
-gem 'factory_girl', :group => [:development, :test]
-#gem "diff-lcs-1.1.3"
 
-group :cucumber do
-    gem 'capybara'
-    gem 'database_cleaner'
-    gem 'cucumber-rails'
-    gem 'cucumber'
-    gem 'spork'
-    gem 'launchy'
-    gem 'webrat'
+# WARNING: webrat conflicts with capybara causing find of /html to fail
+#          removed it from spec_helper.rb and Gemfile
+group :development, :test do
+  gem 'cucumber'
+  gem "cucumber-rails", "~> 1.0", require: false
+  gem 'pickle'
+  gem "launchy"
+  gem "rspec-rails"
+  gem "Selenium"
+  gem "selenium-client"
+  gem "selenium-webdriver"
+  gem "database_cleaner"
+  gem 'factory_girl'
+  gem "capybara"
+  gem 'capybara-webkit', :git => "git://github.com/thoughtbot/capybara-webkit", :branch => "master"
+  gem "escape_utils"
+  gem 'spork'
 end
+#gem "diff-lcs-1.1.3"
