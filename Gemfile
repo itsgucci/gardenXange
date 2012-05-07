@@ -56,5 +56,6 @@ group :development, :test do
   gem 'capybara-webkit', :git => "git://github.com/thoughtbot/capybara-webkit", :branch => "master"
   gem "escape_utils"
   gem 'spork'
+  gem "jasmine"
 end
 #gem "diff-lcs-1.1.3"
