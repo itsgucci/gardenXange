@@ -12,6 +12,8 @@
       $(document).ready(function() {
         if ( $('input#modal_open').length )
           $('div#signup').css('display', 'inline');
+        if ( $('input#modal_login_open').length )
+          $('div#login').css('display', 'inline');
        });   
     console.log("DONE");
   </script>
@@ -28,7 +30,9 @@
       <div class="span2">
         <div class="well sidebar-nav">
           <ul class="nav nav-list">
-            <li class="nav-header">Food Items</li>
+            <% if session[:user_id] %>
+              <li class="nav-header">Food Items</li>
+            <% end %>
           </ul>
         </div><!-- End sidebar-nav-->
       </div><!-- End side menu -->

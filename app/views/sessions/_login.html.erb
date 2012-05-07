@@ -1,11 +1,20 @@
 <!-- The login modal -->
 <div class="modal" id="login">                                                                                                                                                                    
+<%= form_tag session_path do %> 
   <div class="modal-header">
-    <button class="close" data-dismiss="modal">×</button>
+    <a href="<%= root_path %>" data-dismiss="modal" class="btn">x</a>
     <h3>Login to your account</h3>
+    <% if @error %>
+      <div id="error_explanation">
+        <h2><%= @error %></h2>
+      </div>
+    <% end %>
+
   </div>
-  <%= form_tag session_path do %> 
     <div class="modal-body">
+      <% if @modal_login_open %>
+        <%= hidden_field_tag :modal_login_open %>
+      <% end %>
       <p>
         <%= label_tag :username %> 
         <%= text_field_tag :username %>
@@ -16,7 +25,7 @@
       </p>
     </div>
     <div class="modal-footer">
-      <a href="#" data-dismiss="modal" class="btn">Close</a>
+      <a href="<%= root_path %>" data-dismiss="modal" class="btn">Close</a>
       <%= submit_tag "Login", :class => 'btn submit-button' %>
     </div>
   <% end %>
