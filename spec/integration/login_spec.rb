@@ -32,8 +32,8 @@ describe 'login flow', :js => true do
     page.find('div#login').should_not be_visible
     click_link 'Login'
     page.find('div#login').should be_visible
-    save_and_open_page
-    print page.html
+    #save_and_open_page
+    #print page.html
     click_link 'x' # not firing click on button in selenium
     page.find('div#login').should_not be_visible
     page.should have_content('Welcome')

@@ -18,8 +18,10 @@ describe 'signup flow', :js => true do
     visit root_path
     page.should have_content('Signup')
     page.should have_content('Welcome')
-    page.find("[href='#signup']").should be_visible
-    page.find("[href='#login']").should be_visible
+    page.find('.navbar').find("[href='#signup']").should be_visible
+    page.find('.hero-unit').find("[href='#signup']").should be_visible
+    page.find('.navbar').find("[href='#login']").should be_visible
+    page.find('.navbar').find("[href='#login']").should be_visible
     #save_and_open_page
     #print page.html
     #p page.find('div#signup')['class']
