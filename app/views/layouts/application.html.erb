@@ -4,10 +4,20 @@
   <title>gardenXange</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "bootstrap.custom" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.7.2.min" %>
   <%= javascript_include_tag "bootstrap.min" %>
-  <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery.tools.min" %>
+  <!-- jQuery UI Autocomplete for selecting food items -->
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.core" %>
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.widget" %>
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.position" %>
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.autocomplete" %>
+  <%= javascript_include_tag "select_edibles" %>
+  <!-- END jQuery UI Autocomplete for selecting food items -->
+
+  <%= javascript_include_tag "application" %>
+
+  <!-- modals to visible  jQuery -->
   <script>
       $(document).ready(function() {
         if ( $('input#modal_open').length )
@@ -15,8 +25,8 @@
         if ( $('input#modal_login_open').length )
           $('div#login').css('display', 'inline');
        });   
-    console.log("DONE");
   </script>
+  <!-- END modals to visible jQuery -->
 
   <%= csrf_meta_tags %>
 </head>

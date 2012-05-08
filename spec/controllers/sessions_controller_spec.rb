@@ -55,4 +55,12 @@ describe SessionsController, "session management" do
     response.should redirect_to(:action => 'show',
                                 :controller => 'home')
   end
+
+  it "should render welcome on logout and destroy session" do
+    user = FactoryGirl.create(:user, :username => 'frank', :password => 'secret')
+    post 'create', :username => 'frank', :password => 'secret'
+    delete 'destroy'
+    session[:user_id].should be_nil
+    response.should redirect_to(root_url)
+  end
 end

@@ -10,15 +10,17 @@
 #   - lib/source2.js
 #   - dist/**/*.js
 #
+# Currently *must* be in the same load order as app/views/layouts/application.html.erb
+# to catch jQuery conflict bugs
 src_files:
-  - app/assets/javascripts/jquery-ui/js/**/*.js
-  - app/assets/javascripts/*.js
-  - public/javascripts/prototype.js
-  - public/javascripts/effects.js
-  - public/javascripts/controls.js
-  - public/javascripts/dragdrop.js
-  - public/javascripts/application.js
-  - public/javascripts/**/*.js
+  - app/assets/javascripts/jquery-1.7.2.min.js
+  - app/assets/javascripts/bootstrap.min.js
+  - app/assets/javascripts/jquery.tools.min.js
+  - app/assets/javascripts/jquery-ui/development-bundle/ui/jquery.ui.core.js
+  - app/assets/javascripts/jquery-ui/development-bundle/ui/jquery.ui.widget.js
+  - app/assets/javascripts/jquery-ui/development-bundle/ui/jquery.ui.position.js
+  - app/assets/javascripts/jquery-ui/development-bundle/ui/jquery.ui.autocomplete.js
+  - app/assets/javascripts/application.js
 
 # stylesheets
 #
@@ -32,7 +34,6 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
-  - stylesheets/**/*.css
   - app/assets/stylesheets/**/*.css
 
 # helpers
