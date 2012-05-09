@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>gardenXange</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap.custom" %>
+  <%= javascript_include_tag "jquery-1.7.2.min" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= javascript_include_tag "jquery.tools.min" %>
+  <!-- jQuery UI Autocomplete for selecting food items -->
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.core" %>
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.widget" %>
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.position" %>
+  <%= javascript_include_tag "jquery-ui/development-bundle/ui/jquery.ui.autocomplete" %>
+  <%= javascript_include_tag "select_edibles" %>
+  <!-- END jQuery UI Autocomplete for selecting food items -->
+
+  <%= javascript_include_tag "application" %>
+
+  <!-- modals to visible  jQuery -->
+  <script>
+      $(document).ready(function() {
+        if ( $('input#modal_open').length )
+          $('div#signup').css('display', 'inline');
+        if ( $('input#modal_login_open').length )
+          $('div#login').css('display', 'inline');
+       });   
+  </script>
+  <!-- END modals to visible jQuery -->
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!-- javascript_include_tag 'select_edibles.js' %>-->
+  <!-- javascript_include_tag 'jquery-ui/development-bundle/ui/jquery.ui.autocomplete.js' %>-->
+  <%= render "shared/top_bar" %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <!-- The side menu -->
+      <div class="span2">
+        <div class="well sidebar-nav">
+          <% if session[:user_id] %>
+            <ul class="nav nav-list">
+              <li class="nav-header">My Garden</li>
+                <li><a href="#" style="display:inline">tomatos</a>
+                <a href="#" title="mark ready" style="display:inline;padding-right: 5px;"><i class="icon-ok"></i></a>
+                <a href="#" title="delete" style="display:inline"><i class="icon-remove"></i></a>
+                </li> 
+                <li><a href="#" style="display:inline">artichoke</a>
+                <a href="#" title="mark ready" style="display:inline;padding-right: 5px;"><i class="icon-ok"></i></a>
+                <a href="#" title="delete" style="display:inline"><i class="icon-remove"></i></a></li> 
+                <li><a href="#" style="display:inline">plums</a>
+                <a href="#" title="mark ready" style="display:inline;padding-right: 5px;"><i class="icon-ok"></i></a>
+                <a href="#" title="delete" style="display:inline"><i class="icon-remove"></i></a></li> 
+                <li><a href="#" style="display:inline">zuccini</a>
+                <a href="#" title="mark ready" style="display:inline;padding-right: 5px;"><i class="icon-ok"></i></a>
+                <a href="#" title="delete" style="display:inline"><i class="icon-remove"></i></a></li> 
+                <li class="divider"></li>
+            </ul>
+          <% end %>
+        </div><!-- End sidebar-nav-->
+      </div><!-- End side menu -->
+
+      <!-- The main span -->
+      <div class="span6">
+        <!-- The login modal -->
+        <%= render :partial => 'sessions/login' %>                                                                                                                                                
+        <!-- The signup modal -->
+        <%= render :partial => 'signup/signup_user' %>                                                                                                                                                
+        
+        <div class="hero-unit">
+          <%= yield %>
+        </div><!-- End hero unit -->
+      </div><!-- End main span -->
+
+      <!-- right span -->
+      <div class="span4">
+        <div class="well sidebar-nav">
+         <% if session[:user_id] %>
+            <ul class="nav nav-list">
+              <li class="nav-header">New Gardens <a href="#" title="edit setting" style="display:inline"><i class="icon-cog"></i></a></li>
+                <li><a href="#" title="mark ready" style="display:inline;padding-top: 15px;padding-right: 15px;"><i class="icon-user"></i></a><a href="#" style="display:inline">sara</a> from lathrop, ca just signed up.</li> 
+                <li><a href="#" title="mark ready" style="display:inline;padding-top: 15px;padding-right: 15px;"><i class="icon-user"></i></a><a href="#" style="display:inline">brad</a> from tracy, ca just signed up.</li>
+                <li class="divider"></li>
+            </ul>
+            <ul class="nav nav-list">
+              <li class="nav-header">Foods Ready<a href="#" title="edit setting" style="display:inline"><i class="icon-cog"></i></a></li>
+                <li><a href="#" title="mark ready" style="display:inline;padding-top: 15px;padding-right: 15px;"><i class="icon-user"></i></a><a href="#" style="display:inline">mark</a> from lathrop, ca has peas ready..</li> 
+                <li><a href="#" title="mark ready" style="display:inline;padding-top: 15px;padding-right: 15px;"><i class="icon-user"></i></a><a href="#" style="display:inline">mary</a> from manteca, ca has corn and watermelon ready.</li>
+                <li class="divider"></li>
+            </ul>
+            <ul class="nav nav-list">
+              <li class="nav-header">Seeking <a href="#" title="edit setting" style="display:inline"><i class="icon-cog"></i></a></li>
+                <li><a href="#" title="mark ready" style="display:inline;padding-top: 15px;padding-right: 15px;"><i class="icon-user"></i></a><a href="#" style="display:inline">frank</a> from lathrop, ca wants tomatoes.</li> 
+                <li><a href="#" title="mark ready" style="display:inline;padding-top: 15px;padding-right: 15px;"><i class="icon-user"></i></a><a href="#" style="display:inline">brad</a> from tracy, ca wants plums.</li>
+                <li class="divider"></li>
+            </ul>
+          <% end %>
+        </div><!-- End sidebar-nav-->
+      </div><!-- END right span -->
+    </div>
+  </div>
+</body>
+</html>

@@ -20,6 +20,11 @@ Mygarden::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+
+  # Mockups for alpha
+  match 'mocks' => 'home#mocks', :via => :get
+
+  # Keep production
   match 'signup' => 'signup#signup_user'
   match 'signup/create_user' => 'signup#create_user', :via => :post
   match 'signup/select_edibles' => 'signup#select_edibles', :via => :get
